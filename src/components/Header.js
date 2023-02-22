@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import searchIcon from "../images/search.svg";
 import filterIcon from "../images/filter.svg";
 import notifyIcon from "../images/notify.svg";
 import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
 
-const Header = () => {
+const Header = ({ fetchMovie }) => {
+  const [term, setTerm] = useState("");
+
+  const onTermChange = (e) => {
+    setTerm(e.target.value);
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    fetchMovie(term);
+  };
   return (
-    <div className="font-body bg-slate-900">
+    <>
       <header className="flex justify-center items-center">
         <nav className="flex justify-between w-11/12 px-3 h-20 items-center">
           {/* LOGO */}
@@ -17,12 +27,17 @@ const Header = () => {
 
           {/* SEARCH BAR */}
           <div className="w-4/12 mt-3">
-            <form className="bg-black px-4 py-3 rounded-lg w-full flex justify-between">
+            <form
+              className="bg-black px-4 py-3 rounded-lg w-full flex justify-between"
+              onSubmit={onFormSubmit}
+            >
               <div className="flex ">
                 <img src={searchIcon} alt="search" className="w-6" />
                 <input
                   placeholder="Search everything "
                   className="outline-none bg-black ml-5 text-left text-gray-500 w-full"
+                  onChange={onTermChange}
+                  value={term}
                 />
               </div>
               <img src={filterIcon} alt="filter" className="w-6 " />
@@ -32,7 +47,7 @@ const Header = () => {
           {/* NOTIFICATION */}
           <div className="flex relative ">
             <img src={homeIcon} alt="search" className="w-6 " />
-            
+
             <img src={notifyIcon} alt="search" className="w-6 ml-5 " />
             <span className="bg-red-500 w-3 rounded-full h-3 absolute left-14 top-1"></span>
             <img
@@ -43,7 +58,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-    </div>
+    </>
   );
 };
 

@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    body {
+      @apply font-body bg-slate-900 flex flex-col justify-center m-auto 
+    }
+  }
+  
