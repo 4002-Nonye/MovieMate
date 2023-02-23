@@ -6,6 +6,7 @@ import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
 import Filter from "./Filter";
 
+
 const Header = ({ fetchMovie }) => {
   const [term, setTerm] = useState("");
  
