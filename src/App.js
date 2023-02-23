@@ -4,30 +4,36 @@ import Movie from "./components/Movie";
 import Database from "./api/Database";
 
 const App = () => {
-//   const [term, setTerm] = useState();
-  const [res, setRes] = useState([]);
+  //   const [term, setTerm] = useState();
+  const [movie, setMovies] = useState([]);
 
   //FETCH DATA FROM API
   useEffect(() => {
-    fetchMovie("Far from home");
+    fetchMovie("action");
   }, []);
 
-
   const fetchMovie = async (term) => {
-    const response = await Database.get("./search/movie", {
-      params: {
-        api_key: "93d1c08a41d789c260da15dfa118819a",
-        query: term,
-      },
-    });
-    setRes(response.data.results);
-    console.log(response.data.results);
+    try {
+      const response = await Database.get("./search/movie", {
+        params: {
+          api_key: "93d1c08a41d789c260da15dfa118819a",
+          query: term,
+        },
+      });
+      
+      setMovies(response.data.results);
+      console.log(response.data);
+   
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
     <div>
       <Header fetchMovie={fetchMovie} />
-      <Movie res={res} />
+
+      <Movie movie={movie} />
     </div>
   );
 };

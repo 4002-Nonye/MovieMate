@@ -4,18 +4,27 @@ import filterIcon from "../images/filter.svg";
 import notifyIcon from "../images/notify.svg";
 import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
+import Filter from "./Filter";
 
 const Header = ({ fetchMovie }) => {
   const [term, setTerm] = useState("");
+ 
+  const [filter,setFilter] =useState(false)
 
   const onTermChange = (e) => {
     setTerm(e.target.value);
   };
 
   const onFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
     fetchMovie(term);
+    
   };
+  const onFilterClick =()=>{
+    setFilter(!filter)
+   
+
+  }
   return (
     <>
       <header className="flex justify-center items-center">
@@ -26,7 +35,7 @@ const Header = ({ fetchMovie }) => {
           </div>
 
           {/* SEARCH BAR */}
-          <div className="w-4/12 mt-3">
+          <div className="w-4/12 mt-3 relative">
             <form
               className="bg-black px-4 py-3 rounded-lg w-full flex justify-between"
               onSubmit={onFormSubmit}
@@ -34,13 +43,15 @@ const Header = ({ fetchMovie }) => {
               <div className="flex ">
                 <img src={searchIcon} alt="search" className="w-6" />
                 <input
+            
                   placeholder="Search everything "
                   className="outline-none bg-black ml-5 text-left text-gray-500 w-full"
                   onChange={onTermChange}
                   value={term}
                 />
               </div>
-              <img src={filterIcon} alt="filter" className="w-6 " />
+              <img src={filterIcon} alt="filter" className="w-6 cursor-pointer " onClick={onFilterClick}/>
+           { filter?<Filter/>:''}
             </form>
           </div>
 
