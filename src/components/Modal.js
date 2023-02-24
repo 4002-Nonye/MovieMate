@@ -1,11 +1,21 @@
-import React from 'react'
+import React from "react";
 
-const Modal = ({closeModal}) => {
-  return (<>
-    <div className='modal '><p className='text-black'>MODALLLLLLLLLLL</p><p className='text-xl' onClick={closeModal}>x</p></div>
-    <div className='overlay' onClick={closeModal}></div>
+const Modal = ({ closeModal, movie }) => {
+  if (!movie) return;
+  console.log(movie.title);
+  return (
+    <>
+      <div className="modal ">
+        <p className="text-black">
+       title
+        </p>
+        <p className="text-xl" onClick={closeModal}>
+          x
+        </p>
+      </div>
+      <div className="overlay" onClick={closeModal}></div>
     </>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

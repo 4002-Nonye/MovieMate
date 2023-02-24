@@ -15,4 +15,7 @@
   .overlay {
     @apply fixed top-0 left-0 w-full h-full  opacity-100 backdrop-blur-sm z-10 transition duration-700 ease-in-out;
   }
+  .visible{
+    @apply h-screen overflow-hidden
+  }
 }

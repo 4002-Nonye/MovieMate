@@ -7,19 +7,22 @@ const Movie = ({ movie }) => {
   // OPEN MOVIE DETAILS
   const showModal = () => {
     setShowModal(true);
+    document.body.classList.add('visible')
    
   };
   // CLOSE MOVIE DETAILS
   const closeModal=(e)=>{
     setShowModal(false)
+    document.body.classList.remove('visible')
   }
   // CLOSE MOVIE DETAILS IF ESC IS PRESSED
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal) {
     setShowModal(false)
+    document.body.classList.remove('visible')
     }
   });
-  
+
   // IF MOVIE ARRAY IS EMPTY
   if (!movie || movie.length === 0) {
     return (
@@ -31,7 +34,7 @@ const Movie = ({ movie }) => {
 
   return (
     <main className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 justify-center items-center w-full px-9 lg:px-20 mt-16">
-     {modal?<Modal closeModal={closeModal} showModal={showModal}/>:null} 
+     {modal?<Modal closeModal={closeModal} showModal={showModal} movie={movie}/>:null} 
       {movie.map((movieReq) => {
         if (!movieReq.poster_path) return;
         return (
@@ -62,7 +65,7 @@ const Movie = ({ movie }) => {
                   </div>
                 </div>
                 <button
-                  className="bg-slate-900 p-2 rounded-md mt-3 text-white hover:text-red-400"
+                  className="bg-slate-900 p-2 rounded-md mt-3 text-white hover:text-red-400 transition duration-700 ease-in-out"
                   onClick={showModal}
                 >
                   View more
