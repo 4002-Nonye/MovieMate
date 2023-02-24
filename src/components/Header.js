@@ -46,7 +46,7 @@ const Header = ({ fetchMovie }) => {
                 <input
             
                   placeholder="Search everything "
-                  className="outline-none bg-black ml-5 text-left text-gray-500 w-full"
+                  className="outline-none bg-black ml-5 text-left text-gray-300 w-full"
                   onChange={onTermChange}
                   value={term}
                 />
