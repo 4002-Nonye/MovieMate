@@ -2,12 +2,12 @@ import React from "react";
 
 const Modal = ({ closeModal, movie }) => {
   if (!movie) return;
-  console.log(movie.title);
+//   console.log(movie.title);
   return (
     <>
       <div className="modal ">
         <p className="text-black">
-       title
+     {movie.title}
         </p>
         <p className="text-xl" onClick={closeModal}>
           x

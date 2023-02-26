@@ -1,63 +1,57 @@
 import React, { useState } from "react";
 import searchIcon from "../images/search.svg";
-import filterIcon from "../images/filter.svg";
 import notifyIcon from "../images/notify.svg";
 import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
-import Filter from "./Filter";
+
 
 
 const Header = ({ fetchMovie }) => {
   const [term, setTerm] = useState("");
- 
-  const [filter,setFilter] =useState(false)
+
+  const [filter, setFilter] = useState(false);
+
 
   const onTermChange = (e) => {
     setTerm(e.target.value);
   };
 
   const onFormSubmit = (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     fetchMovie(term);
-    
   };
-  const onFilterClick =()=>{
-    setFilter(!filter)
-   
 
-  }
+
   return (
     <>
-      <header className="flex justify-center items-center">
-        <nav className="flex justify-between w-11/12 px-3 h-20 items-center">
+      <header className="flex justify-center items-center flex-col ">
+        <nav className="flex justify-between w-11/12 md:px-3 h-20 items-center ">
           {/* LOGO */}
-          <div className="font-extrabold text-3xl tracking-wide text-white">
+          <div className="font-extrabold text-2xl md:text-3xl tracking-wide text-white">
             Movie<span className="text-red-600">M</span>ate
           </div>
 
           {/* SEARCH BAR */}
-          <div className="w-4/12 mt-3 relative">
+          <div className="w-4/12 mt-3  left-1/4 ">
             <form
-              className="bg-black px-4 py-3 rounded-lg w-full flex justify-between"
+              className="bg-black px-4 py-3 rounded-lg w-full flex justify-between border-2 border-red-500"
               onSubmit={onFormSubmit}
             >
-              <div className="flex ">
+              <div className="flex  ">
                 <img src={searchIcon} alt="search" className="w-6" />
                 <input
-            
-                  placeholder="Search everything "
-                  className="outline-none bg-black ml-5 text-left text-gray-300 w-full"
+                  placeholder="movies, genres, title..."
+                  className="outline-none bg-black ml-5 text-left text-gray-300 w-full "
                   onChange={onTermChange}
                   value={term}
                 />
               </div>
-              <img src={filterIcon} alt="filter" className="w-6 cursor-pointer " onClick={onFilterClick}/>
-           { filter?<Filter/>:''}
+          
             </form>
           </div>
 
           {/* NOTIFICATION */}
-          <div className="flex relative ">
+          <div className=" relative hidden lg:flex">
             <img src={homeIcon} alt="search" className="w-6 " />
 
             <img src={notifyIcon} alt="search" className="w-6 ml-5 " />
@@ -65,10 +59,14 @@ const Header = ({ fetchMovie }) => {
             <img
               src={nathan}
               alt="search"
-              className="w-10 ml-5 border-2 rounded-full border-red-500"
+              className="w-8 ml-5 border-2 rounded-full border-red-500"
             />
           </div>
+        
+        
+      
         </nav>
+     
       </header>
     </>
   );

@@ -3,6 +3,7 @@ import Modal from "./Modal";
 
 const Movie = ({ movie }) => {
   const [modal, setShowModal] = useState(false);
+  
 
   // OPEN MOVIE DETAILS
   const showModal = () => {
@@ -57,7 +58,7 @@ const Movie = ({ movie }) => {
                       <span className="text-lg text-red-400 font-bold">
                         Release Date:
                       </span>{" "}
-                      {/* IF NO RELEASE DATA, DO NOT RENDER */}
+                      {/* IF NO RELEASE DATE, DO NOT RENDER */}
                       {movieReq.release_date
                         ? movieReq.release_date.slice(0, 4)
                         : "unknown"}
