@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Movie from "./components/Movie";
 import Database from "./api/Database";
 import { HashLoader } from "react-spinners";
+import Footer from "./components/Footer";
 
 const App = () => {
   //   const [term, setTerm] = useState();
@@ -15,8 +16,7 @@ const App = () => {
   }, []);
 
   const fetchMovie = async (term) => {
-   
-    if(!term) return
+    if (!term) return;
     setLoading(true);
 
     try {
@@ -24,6 +24,7 @@ const App = () => {
         params: {
           api_key: "93d1c08a41d789c260da15dfa118819a",
           query: term,
+          append_to_response: "videos",
         },
       });
 
@@ -37,16 +38,20 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <Header fetchMovie={fetchMovie} />
-      {loading ? (
-        <div className="flex justify-center items-center h-screen ">
-          <HashLoader color="red" cssOverride={null} loading />
-        </div>
-      ) : (
-        <Movie movie={movie} />
-      )}
-    </div>
+
+      <main className="flex-1">
+        {loading ? (
+          <div className="flex justify-center items-center h-screen ">
+            <HashLoader color="red" cssOverride={null} loading />{" "}
+          </div>
+        ) : (
+          <Movie movie={movie} />
+        )}
+      </main>
+      <Footer />
+    </>
   );
 };
 

@@ -4,13 +4,8 @@ import notifyIcon from "../images/notify.svg";
 import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
 
-
-
 const Header = ({ fetchMovie }) => {
   const [term, setTerm] = useState("");
-
-  const [filter, setFilter] = useState(false);
-
 
   const onTermChange = (e) => {
     setTerm(e.target.value);
@@ -20,7 +15,6 @@ const Header = ({ fetchMovie }) => {
     e.preventDefault();
     fetchMovie(term);
   };
-
 
   return (
     <>
@@ -46,27 +40,22 @@ const Header = ({ fetchMovie }) => {
                   value={term}
                 />
               </div>
-          
             </form>
           </div>
 
           {/* NOTIFICATION */}
-          <div className=" relative hidden lg:flex">
-            <img src={homeIcon} alt="search" className="w-6 " />
+          <div className=" relative flex">
+            <img src={homeIcon} alt="search" className="w-6 hidden lg:flex" />
 
             <img src={notifyIcon} alt="search" className="w-6 ml-5 " />
-            <span className="bg-red-500 w-3 rounded-full h-3 absolute left-14 top-1"></span>
+            <span className="bg-red-500 w-3 rounded-full h-3 absolute left-8 lg:left-14 top-1"></span>
             <img
               src={nathan}
               alt="search"
               className="w-8 ml-5 border-2 rounded-full border-red-500"
             />
           </div>
-        
-        
-      
         </nav>
-     
       </header>
     </>
   );

@@ -10,7 +10,7 @@ const HamMenu = () => {
             <img src={homeIcon} alt="search" className="w-6 " /> <span className='inline-block'>Home</span>
 
             <img src={notifyIcon} alt="search" className="w-6 " /> Notifications
-            {/* <span className="bg-red-500 w-3 rounded-full h-3 absolute left-14 top-1"></span> */}
+         
             <img
               src={nathan}
               alt="search"
