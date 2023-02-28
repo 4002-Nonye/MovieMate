@@ -10,11 +10,12 @@ const App = () => {
   const [movie, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  //FETCH DATA FROM API
+  //FETCH DATA FROM API CALLED IN USE EFFECT HOOK
   useEffect(() => {
     fetchMovie("toy story");
   }, []);
 
+  //FETCH DATA FROM API
   const fetchMovie = async (term) => {
     if (!term) return;
     setLoading(true);
@@ -24,7 +25,7 @@ const App = () => {
         params: {
           api_key: "93d1c08a41d789c260da15dfa118819a",
           query: term,
-          append_to_response: "videos",
+        
         },
       });
 
@@ -42,6 +43,8 @@ const App = () => {
       <Header fetchMovie={fetchMovie} />
 
       <main className="flex-1">
+        {/* WHILE DATA IS BEING FETCHED IN BACKGROUND, RENDER A LOADING SPINNER 
+        DATA FETCHED, RENDER MOVIES ON SCREEN */}
         {loading ? (
           <div className="flex justify-center items-center h-screen ">
             <HashLoader color="red" cssOverride={null} loading />{" "}

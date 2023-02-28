@@ -15,11 +15,12 @@ const Footer = () => {
   return (
     <footer className="bg-black  w-full h-full ">
       <div className="w-9/12 h-full flex justify-between pt-10 lg:p-11  mt-8  m-auto">
+        {/* LINKS IN FOOTER SECTION (DIVIDED IN THREE COLUMNS) */}
         <div className=" md:flex md:w-7/12 md:justify-between">
           <div className="first  flex flex-col text-sm">
             {footerItems.slice(0, 3).map((item) => {
               return (
-                <a className="link" href="#">
+                <a key={item.slice(0, 3)} className="link" href="#">
                   {item}
                 </a>
               );
@@ -28,7 +29,7 @@ const Footer = () => {
           <div className="second  flex flex-col text-sm">
             {footerItems.slice(3, 6).map((item) => {
               return (
-                <a className="link" href="#">
+                <a key={item.slice(0, 4)} className="link" href="#">
                   {item}
                 </a>
               );
@@ -39,7 +40,7 @@ const Footer = () => {
         <div className="third flex flex-col text-sm">
           {footerItems.slice(6, 9).map((item) => {
             return (
-              <a className="link" href="#">
+              <a key={item.slice(0, 5)} className="link" href="#">
                 {item}
               </a>
             );
@@ -48,7 +49,7 @@ const Footer = () => {
       </div>
 
       <div className="w-12/12 h-full flex justify-between px-4 lg:px-11 pt-7  m-auto">
-        {/* CONTACT ME SECTION */}
+        {/* CONTACT ME THROUGH SOCIALS SECTION */}
         <div className="flex justify-between ">
           <a className="link" href="www.twitter.com/the_altekid">
             <svg

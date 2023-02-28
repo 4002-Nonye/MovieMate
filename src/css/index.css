@@ -6,13 +6,9 @@
 
 @layer components {
   body {
-    @apply font-body bg-slate-900 flex flex-col min-h-screen;
+    @apply font-body bg-slate-900 flex flex-col min-h-screen m-auto max-w-screen-2xl;
   }
   
-  .modal {
-    @apply fixed translate-y--1/4  top-2/4 left-2/4 bg-white shadow-md z-40 max-w-4xl px-24 py-20 transition-all duration-700 ease-in-out;
-  }
-
   .overlay {
     @apply fixed top-0 left-0 w-full h-full  opacity-100 backdrop-blur-sm z-10 transition duration-700 ease-in-out;
   }

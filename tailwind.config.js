@@ -9,6 +9,11 @@ module.exports = {
       colors:{
         bg:"#2a272a",
         link:"mediumaquamarine"
+      },
+      spacing:{
+        right:'52px',
+        left:'40%'
+
       }
     },
   },
