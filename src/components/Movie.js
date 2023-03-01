@@ -4,6 +4,7 @@ import defaultImg from "../images/default.jpg";
 import Database from "../api/Database";
 import { motion } from "framer-motion";
 
+
 const Movie = ({ movie }) => {
   const [modal, setShowModal] = useState(false);
   const [movieId, setMovieId] = useState();
