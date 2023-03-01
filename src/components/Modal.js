@@ -53,8 +53,8 @@ if(vote_average<=3) {
           <div className="flex items-center mb-3">
             <h2 className="text-lg ">Language:</h2>
 
-            {spoken_languages?.map((lang) => {
-              return <p key={lang} className="  text-sm  ml-3 ">{lang.name?lang.name:'unknown'}</p>;
+            {spoken_languages?.map((lang,index) => {
+              return <p key={index} className="  text-sm  ml-3 ">{lang.name?lang.name:'unknown'}</p>;
             })}
           </div>
 
