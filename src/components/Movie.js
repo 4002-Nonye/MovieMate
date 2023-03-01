@@ -59,13 +59,14 @@ const Movie = ({ movie }) => {
 
   return (
     <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 justify-center items-center w-full px-9 lg:px-20 mt-16">
-      {modal ? (
+    
         <Modal
           closeModal={closeModal}
           showModal={showModal}
           movieDetails={details}
+          modal={modal}
         />
-      ) : null}
+   
       {movie.map((movieReq) => {
         //RENDER MOVIES ON SCREEN
 

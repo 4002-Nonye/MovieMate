@@ -33,7 +33,7 @@ const App = () => {
       setMovies(response.data.results);
       console.log(response.data);
     } catch (error) {
-      console.log(error);
+      alert.log(error);
     } finally {
       setLoading(false);
     }
