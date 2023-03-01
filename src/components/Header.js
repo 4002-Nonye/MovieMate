@@ -4,6 +4,7 @@ import notifyIcon from "../images/notify.svg";
 import nathan from "../images/nathan.webp";
 import homeIcon from "../images/home.svg";
 
+
 const Header = ({ fetchMovie }) => {
   const ref = useRef();
   const [term, setTerm] = useState("");

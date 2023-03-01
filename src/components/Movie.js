@@ -1,26 +1,28 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import defaultImg from "../images/default.jpg";
 import Database from "../api/Database";
-
+import { motion } from "framer-motion";
 
 const Movie = ({ movie }) => {
   const [modal, setShowModal] = useState(false);
   const [movieId, setMovieId] = useState(1);
   const [details, setDetails] = useState("");
 
+  //RUN REQUEST TO GET MOVIE BY MOVIE ID
   useEffect(() => {
     getMovieDetails();
   }, [movieId]);
+
+  //QUERY FOR DETAILS ON MOVIES WHEN BTN IS CLICKED
   const getMovieDetails = async () => {
-   
     const data = await Database.get(`/movie/${movieId}`, {
       params: {
         api_key: "93d1c08a41d789c260da15dfa118819a",
       },
     });
     setDetails(data.data);
-    console.log(data.data);
+   
   };
 
   // OPEN MOVIE DETAILS
@@ -40,25 +42,33 @@ const Movie = ({ movie }) => {
       document.body.classList.remove("visible");
     }
   });
- 
 
   // IF MOVIE ARRAY IS EMPTY
   if (!movie || movie.length === 0) {
     return (
-      <div className="text-red-500 text-xl flex justify-center items-center m-auto text-center h-screen">
-        oops! Nothing Found😐
-      </div>
+      <motion.div
+        initial={{ y: "-100vh" }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
+        className="text-red-500 text-xl flex justify-center items-center m-auto h-screen"
+      >
+        <p>oops! Nothing Found😐</p>
+      </motion.div>
     );
   }
 
   return (
     <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 justify-center items-center w-full px-9 lg:px-20 mt-16">
       {modal ? (
-        <Modal closeModal={closeModal} showModal={showModal} movieDetails={details}/>
+        <Modal
+          closeModal={closeModal}
+          showModal={showModal}
+          movieDetails={details}
+        />
       ) : null}
       {movie.map((movieReq) => {
         //RENDER MOVIES ON SCREEN
-       
+
         return (
           <div key={movieReq.id} className="h-full">
             <div className="mb-3 h-full ">
@@ -93,20 +103,18 @@ const Movie = ({ movie }) => {
                   </div>
                 </div>
                 {/* BUTTON TO CONTROL MODAL (MORE DETAILS ON MOVIE) */}
-                <button
-                  className="bg-slate-900 p-2 rounded-md mt-3 text-white hover:text-red-400 transition duration-700 ease-in-out"
-                  onClick={()=>{   
-                  
-                    setMovieId(movieReq.id)
-              
-                 setTimeout(()=>{
-showModal()
-                 },200)
-                   
+                <motion.button
+                
+                  whileHover={{ color: "#f87171" }}
+                  className="bg-slate-900 text-white p-2 rounded-md mt-7"
+                  onClick={() => {
+                    setMovieId(movieReq.id);
+
+                    showModal();
                   }}
                 >
                   View more
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>

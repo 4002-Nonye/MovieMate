@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 const footerItems = [
   "Audio Description",
   "Investor Relations",
@@ -20,18 +21,30 @@ const Footer = () => {
           <div className="first  flex flex-col text-sm">
             {footerItems.slice(0, 3).map((item) => {
               return (
-                <a key={item.slice(0, 3)} className="link" href="#">
+                <motion.a
+                 
+                  whileHover={{ color: "#f87171" }}
+                  key={item.slice(0, 3)}
+                  className="link"
+                  href="#"
+                >
                   {item}
-                </a>
+                </motion.a>
               );
             })}
           </div>
           <div className="second  flex flex-col text-sm">
             {footerItems.slice(3, 6).map((item) => {
               return (
-                <a key={item.slice(0, 4)} className="link" href="#">
+                <motion.a
+                 
+                  whileHover={{ color: "#f87171" }}
+                  key={item.slice(0, 4)}
+                  className="link"
+                  href="#"
+                >
                   {item}
-                </a>
+                </motion.a>
               );
             })}
           </div>
@@ -40,9 +53,15 @@ const Footer = () => {
         <div className="third flex flex-col text-sm">
           {footerItems.slice(6, 9).map((item) => {
             return (
-              <a key={item.slice(0, 5)} className="link" href="#">
+              <motion.a
+               
+                whileHover={{ color: "#f87171" }}
+                key={item.slice(0, 5)}
+                className="link"
+                href="#"
+              >
                 {item}
-              </a>
+              </motion.a>
             );
           })}
         </div>
@@ -84,7 +103,7 @@ const Footer = () => {
         </div>
 
         {/* CREATED  */}
-        <p className="link">&copy; 2023</p>
+        <p className="text-slate-500 ">&copy; 2023</p>
       </div>
     </footer>
   );

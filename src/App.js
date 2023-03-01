@@ -17,6 +17,7 @@ const App = () => {
 
   //FETCH DATA FROM API
   const fetchMovie = async (term) => {
+   
     if (!term) return;
     setLoading(true);
 
@@ -32,7 +33,7 @@ const App = () => {
       setMovies(response.data.results);
       console.log(response.data);
     } catch (error) {
-      alert(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }
