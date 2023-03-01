@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 
 const Movie = ({ movie }) => {
   const [modal, setShowModal] = useState(false);
-  const [movieId, setMovieId] = useState(1);
-  const [details, setDetails] = useState("");
+  const [movieId, setMovieId] = useState();
+  const [details, setDetails] = useState({});
 
   //RUN REQUEST TO GET MOVIE BY MOVIE ID
   useEffect(() => {
@@ -22,7 +22,6 @@ const Movie = ({ movie }) => {
       },
     });
     setDetails(data.data);
-   
   };
 
   // OPEN MOVIE DETAILS
@@ -104,13 +103,11 @@ const Movie = ({ movie }) => {
                 </div>
                 {/* BUTTON TO CONTROL MODAL (MORE DETAILS ON MOVIE) */}
                 <motion.button
-                
                   whileHover={{ color: "#f87171" }}
                   className="bg-slate-900 text-white p-2 rounded-md mt-7"
                   onClick={() => {
-                    setMovieId(movieReq.id);
-
                     showModal();
+                    setMovieId(movieReq.id);
                   }}
                 >
                   View more

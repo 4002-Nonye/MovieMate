@@ -36,15 +36,15 @@ const Header = ({ fetchMovie }) => {
 
           {/* NOTIFICATION */}
           <div className=" relative flex">
-            <img src={homeIcon} alt="search" className="w-6 ml-6 " />
+            <img src={homeIcon} alt="search" className="w-6 ml-6 cursor-pointer " />
 
-            <img src={notifyIcon} alt="search" className="w-6 ml-6 " />
+            <img src={notifyIcon} alt="search" className="w-6 ml-6 cursor-pointer" />
             <span className=" bg-red-600 w-3 h-3 rounded-full right-right absolute  top-1"></span>
 
             <img
               src={nathan}
               alt="search"
-              className="w-8 ml-5 border-2 rounded-full border-red-500"
+              className="w-8 ml-5 border-2 cursor-pointer rounded-full border-red-500"
             />
           </div>
           {/* NOTIFICATION END*/}

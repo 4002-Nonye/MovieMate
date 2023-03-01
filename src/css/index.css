@@ -21,5 +21,13 @@
   .btmlink{
     @apply w-5 hover:fill-red-500 ml-3 transition duration-700 ease-in-out;
   }
-
+.red{
+  @apply text-red-500;
+}
+.green{
+  @apply text-green-600;
+}
+.orange{
+  @apply text-orange-600;
+}
 }
