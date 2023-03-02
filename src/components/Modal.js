@@ -102,7 +102,7 @@ const Modal = ({ closeModal, movieDetails, modal, isLoading }) => {
             {/* MOVIE RATING */}
             <div className="flex items-center mb-3">
               {isLoading ? (
-                <Skeleton height={"30px"} width={150} className="mb-9 mt-9" />
+                <Skeleton height={"30px"} width={150}  />
               ) : (
                 <h2 className="text-lg ">Ratings:</h2>
               )}
@@ -123,7 +123,7 @@ const Modal = ({ closeModal, movieDetails, modal, isLoading }) => {
 
             <div className="flex items-center mb-3">
               {isLoading ? (
-                <Skeleton height={"30px"} width={150} className="mb-9 mt-9" />
+                <Skeleton height={"30px"} width={150}  />
               ) : (
                 <h2 className="text-lg ">Language:</h2>
               )}
