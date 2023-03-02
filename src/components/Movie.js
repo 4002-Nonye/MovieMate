@@ -5,24 +5,29 @@ import Database from "../api/Database";
 import { motion } from "framer-motion";
 
 
+
 const Movie = ({ movie }) => {
   const [modal, setShowModal] = useState(false);
   const [movieId, setMovieId] = useState();
   const [details, setDetails] = useState({});
+  const [isLoading,setIsLoading] =useState(true)
+  
 
   //RUN REQUEST TO GET MOVIE BY MOVIE ID
   useEffect(() => {
-    getMovieDetails();
+    getMovieDetails()
   }, [movieId]);
 
   //QUERY FOR DETAILS ON MOVIES WHEN BTN IS CLICKED
   const getMovieDetails = async () => {
+    setIsLoading(true)
     const data = await Database.get(`/movie/${movieId}`, {
       params: {
         api_key: "93d1c08a41d789c260da15dfa118819a",
       },
     });
     setDetails(data.data);
+    setIsLoading(false)
   };
 
   // OPEN MOVIE DETAILS
@@ -65,6 +70,7 @@ const Movie = ({ movie }) => {
           showModal={showModal}
           movieDetails={details}
           modal={modal}
+          isLoading={isLoading}
         />
    
       {movie.map((movieReq) => {

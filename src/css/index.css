@@ -18,7 +18,9 @@
   .link {
     @apply pb-3 text-slate-500;
   }
- 
+  .btmlink{
+    @apply w-5  ml-3 ;
+  }
 .red{
   @apply text-red-500;
 }
